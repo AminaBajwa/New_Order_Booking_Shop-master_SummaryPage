@@ -17,10 +17,17 @@ class OrderDetailsViewModel extends GetxController{
     fetchAllOrderDetails();
   }
 
+  // List<OrderDetailsModel> getOrderDetailsByOrderId(int orderId) {
+  //   // Replace this with your actual implementation to retrieve OrderDetails
+  //   return allOrderDetails.where((orderDetails) => orderDetails.orderMasterId == orderId).toList();
+  // }
+
+
   fetchAllOrderDetails() async{
     var orderdetails = await orderdetailsRepository.getOrderDetails();
     allOrderDetails.value = orderdetails;
   }
+
 
   addOrderDetail(OrderDetailsModel orderdetailsModel){
     orderdetailsRepository.add(orderdetailsModel);

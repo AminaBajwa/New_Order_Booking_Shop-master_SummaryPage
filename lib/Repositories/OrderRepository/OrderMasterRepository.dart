@@ -9,7 +9,7 @@ class OrderMasterRepository{
 
   Future<List<OrderMasterModel>> getOrderMaster() async{
     var dbClient = await dbHelperOrderMaster.db;
-    List<Map> maps = await dbClient.query('orderMaster',columns: ['orderId','shopName','ownerName','phoneNo','brand']);
+    List<Map> maps = await dbClient.query('orderMaster',columns: ['orderId','date','shopName','ownerName','phoneNo','brand']);
     List<OrderMasterModel> ordermaster = [];
     for(int i = 0; i<maps.length; i++)
     {
@@ -35,8 +35,6 @@ class OrderMasterRepository{
     return await dbClient.delete('orderMaster',
         where: 'orderId = ?', whereArgs: [orderId]);
   }
-
-
 
 
 }
